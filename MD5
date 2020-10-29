@@ -1,6 +1,7 @@
-7986a71a014a94526c5682dd7cd71237 *DESCRIPTION
+315b35cafa717874965975494d48e063 *DESCRIPTION
 cc519292f39b7e89cd749b0037911a71 *LICENSE
 bcc8ac9fcb18a0e10dec8d712f66b7b9 *NAMESPACE
+20bd118bf1981ce0e70ca1e43d5e091a *NEWS.md
 8547ca28841bd3bc8a47ab7f5b6cca4c *R/BSDT.R
 54040e2909345b87b1fe1fc6a420aba6 *R/BSDT_cov.R
 c0b0c8913f6f8c5c4344bf72ad284699 *R/BTD.R
@@ -16,7 +17,7 @@ eeedb94abd7ed84733bba574babd6a68 *R/dissoc_power.R
 80dfaf7a062db2b55fcc23ef96d3be04 *data/size_weight_illusion.rda
 d41ee5f941ed20e000be04b48ce59e2d *inst/doc/singcar_vignette.R
 7a8391e83e27ec9456e3898a5322868c *inst/doc/singcar_vignette.Rmd
-ace3d2171a8c2b8c389623a20b59837a *inst/doc/singcar_vignette.html
+434c3c5e48fa57eda0963f6d6e14d976 *inst/doc/singcar_vignette.html
 88577b2724f2b3229b9e9ff201a460c2 *man/BSDT.Rd
 df6a90627010e2b87dc4d48ee8328fa5 *man/BSDT_cov.Rd
 9a7e16d80529e894f55d4a3547f6656c *man/BSDT_cov_power.Rd
@@ -41,7 +42,7 @@ ee5b68e47dfc30187707bcf35e7bc57e *tests/testthat/test-BTD.R
 951d63a6de504f449ea9025b13f688ce *tests/testthat/test-RSDT.R
 a9e954442eea67a52332b2cdf4c2578f *tests/testthat/test-TD.R
 d35fa64d2b99b7e4c95fb261b01dd433 *tests/testthat/test-UDT.R
-816bd113a6bbda88088c7dde9315a574 *tests/testthat/test-power_functions.R
+2b5d45dded226524ff6aa53cd21a3670 *tests/testthat/test-power_functions.R
 5cfdb02c5050b9361ed2395a34ee9014 *vignettes/apa.csl
 7a8391e83e27ec9456e3898a5322868c *vignettes/singcar_vignette.Rmd
 7a9e6cefaf15d8174e8f0110bbeb66d8 *vignettes/singcar_vignette.bib
