@@ -65,14 +65,15 @@
 #'    controls = size_weight_illusion[-1, "V_SWI"], alternative = "l")
 #'
 #' @references
-#' Crawford, J. R., & Howell, D. C. (1998). Comparing an Individual’s Test Score
+#'
+#' Crawford, J. R., & Howell, D. C. (1998). Comparing an Individual's Test Score
 #' Against Norms Derived from Small Samples. \emph{The Clinical Neuropsychologist,
-#' 12}(4), 482–486. https://doi.org/10.1076/clin.12.4.482.7241
+#' 12}(4), 482 - 486. \doi{10.1076/clin.12.4.482.7241}
 #'
 #' Crawford, J. R., & Garthwaite, P. H. (2002). Investigation of the single case
 #' in neuropsychology: Confidence limits on the abnormality of test scores and
-#' test score differences. \emph{Neuropsychologia, 40}(8), 1196–1208.
-#' https://doi.org/10.1016/S0028-3932(01)00224-X
+#' test score differences. \emph{Neuropsychologia, 40}(8), 1196-1208.
+#' \doi{10.1016/S0028-3932(01)00224-X}
 
 
 
@@ -179,7 +180,7 @@ TD <- function (case, controls, sd = NULL, sample_size = NULL,
     ci_up_zcc <- ncp_up/sqrt(n)
     cint_zcc <- c(ci_lo_zcc, ci_up_zcc)
 
-    zcc.name <- paste0("Standardised case score (Z-CC), ",
+    zcc.name <- paste0("Std. case score (Z-CC), ",
                        100*conf_level, "% CI [",
                        format(round(cint_zcc[1], 2), nsmall = 2),", ",
                        format(round(cint_zcc[2], 2), nsmall = 2),"]")
@@ -254,13 +255,13 @@ TD <- function (case, controls, sd = NULL, sample_size = NULL,
     interval <- NULL
 
     if (alternative == "less") {
-      names(estimate) <- c("Standardised case score (Z-CC)",
+      names(estimate) <- c("Std. case score (Z-CC)",
                            "Proportion below case (%)")
     } else if (alternative == "greater") {
-      names(estimate) <- c("Standardised case score (Z-CC)",
+      names(estimate) <- c("Std. case score (Z-CC)",
                            "Proportion above case (%)")
     } else {
-      names(estimate) <- c("Standardised case score (Z-CC)",
+      names(estimate) <- c("Std. case score (Z-CC)",
                            paste("Proportion", ifelse(tstat < 0, "below", "above"), "case (%)"))
     }
 
@@ -283,11 +284,11 @@ TD <- function (case, controls, sd = NULL, sample_size = NULL,
                  interval = interval,
                  desc = c(con_m, con_sd, n, stderr),
                  alternative = alternative,
-                 method = paste("Crawford-Howell (1998) t-test"),
-                 data.name = paste0("case = ", format(round(case, 2), nsmall = 2),
-                                    " and controls (M = ", format(round(con_m, 2), nsmall = 2),
-                                    ", SD = ", format(round(con_sd, 2), nsmall = 2),
-                                    ", N = ", n, ")"))
+                 method = paste("Test of Deficit"),
+                 data.name = paste0("Case = ", format(round(case, 2), nsmall = 2),
+                                    ", Controls (m = ", format(round(con_m, 2), nsmall = 2),
+                                    ", sd = ", format(round(con_sd, 2), nsmall = 2),
+                                    ", n = ", n, ")"))
 
   class(output) <- "htest"
   output

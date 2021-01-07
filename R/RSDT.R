@@ -56,11 +56,13 @@
 #' RSDT(case_a = size_weight_illusion[1, "V_SWI"], case_b = size_weight_illusion[1, "K_SWI"],
 #'  controls_a = size_weight_illusion[-1, "V_SWI"], controls_b = size_weight_illusion[-1, "K_SWI"])
 #'
-#' @references {Crawford, J. R., & Garthwaite, P. H. (2005). Testing for
+#' @references
+#'
+#' Crawford, J. R., & Garthwaite, P. H. (2005). Testing for
 #' Suspected Impairments and Dissociations in Single-Case Studies in
 #' Neuropsychology: Evaluation of Alternatives Using Monte Carlo Simulations and
 #' Revised Tests for Dissociations. \emph{Neuropsychology, 19}(3), 318 - 331.
-#' \url{https://doi.org/10.1037/0894-4105.19.3.318}}
+#' \doi{10.1037/0894-4105.19.3.318}
 
 
 
@@ -191,6 +193,15 @@ RSDT <- function (case_a, case_b, controls_a, controls_b,
 
     if (alternative == "two.sided") {
       pval <- 2 * stats::pt(abs(tstat), df = df, lower.tail = FALSE)
+
+      if (zdcc < 0) {
+        p.name <- "Proportion below case (%)"
+      } else {
+        p.name <- "Proportion above case (%)"
+      }
+
+
+
     } else if (alternative == "greater") {
       # Since equation (7) from Crawford and Garthwaite (the exact method)
       # cannot return a negative t-value we have to use zdcc to see
@@ -200,7 +211,7 @@ RSDT <- function (case_a, case_b, controls_a, controls_b,
       } else {
         pval <- stats::pt(-tstat, df = df, lower.tail = FALSE)
       }
-
+      p.name <- "Proportion above case (%)"
     }
 
      else { # I.e. if alternative == "less"
@@ -210,7 +221,7 @@ RSDT <- function (case_a, case_b, controls_a, controls_b,
       } else {
         pval <- stats::pt(tstat, df = df, lower.tail = TRUE)
       }
-
+       p.name <- "Proportion below case (%)"
     }
 
   # } else {
@@ -255,31 +266,20 @@ RSDT <- function (case_a, case_b, controls_a, controls_b,
   #
   # }
 
-
-
   estimate <- c(std_a, std_b, zdcc, ifelse(alternative == "two.sided", (pval/2*100), pval*100))
 
-  if (alternative == "two.sided") {
-    p.name <- "Proportion of control population with more extreme task difference"
-  } else if (alternative == "greater") {
-    p.name <- "Proportion of control population with more positive task difference"
-  } else {
-    p.name <- "Proportion of control population with more negative task difference"
-  }
-
-
   # Set names for objects in output
-  names(estimate) <- c("Standardised case score, task A (Z-CC)",
-                       "Standardised case score, task B (Z-CC)",
-                       "Standardised task discrepancy (Z-DCC)",
+  names(estimate) <- c("Std. case score, task A (Z-CC)",
+                       "Std. case score, task B (Z-CC)",
+                       "Std. task discrepancy (Z-DCC)",
                        p.name)
   names(df) <- "df"
   null.value <- 0 # Null hypothesis: difference = 0
   names(null.value) <- "difference between tasks"
-  dname <- paste0("Case score A: ", format(round(case_a, 2), nsmall = 2), ", ",
-                  "Case score B: ", format(round(case_b, 2), nsmall = 2), ", ",
-                  "Controls A (mean, sd): (", format(round(con_m_a, 2), nsmall = 2), ", ",format(round(con_sd_a, 2), nsmall = 2), "), ",
-                  "Controls B (mean, sd): (", format(round(con_m_b, 2), nsmall = 2), ", ",format(round(con_sd_b, 2), nsmall = 2), ")")
+  dname <- paste0("Case A: ", format(round(case_a, 2), nsmall = 2), ", ",
+                  "B: ", format(round(case_b, 2), nsmall = 2), ", ",
+                  "Ctrl. A (m, sd): (", format(round(con_m_a, 2), nsmall = 2), ", ",format(round(con_sd_a, 2), nsmall = 2), "), ",
+                  "B: (", format(round(con_m_b, 2), nsmall = 2), ", ",format(round(con_sd_b, 2), nsmall = 2), ")")
   names(pval) <- NULL
 
   # Build output to be able to set class as "htest" object. See documentation for "htest" class for more info

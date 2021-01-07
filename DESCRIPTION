@@ -1,6 +1,6 @@
 Package: singcar
 Title: Comparing Single Cases to Small Samples
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     c(person(given = "Jonathan",
              family = "Rittmo",
@@ -24,9 +24,9 @@ VignetteBuilder: knitr
 URL: https://github.com/jorittmo/singcar
 BugReports: https://github.com/jorittmo/singcar/issues
 NeedsCompilation: no
-Packaged: 2020-10-28 10:26:22 UTC; jritt
+Packaged: 2021-01-07 09:20:09 UTC; jritt
 Author: Jonathan Rittmo [aut, cre] (<https://orcid.org/0000-0001-5075-0166>),
   Robert McIntosh [aut] (<https://orcid.org/0000-0002-7615-6699>)
 Maintainer: Jonathan Rittmo <j.rittmo@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-10-29 08:00:02 UTC
+Date/Publication: 2021-01-07 09:40:02 UTC

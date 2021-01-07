@@ -85,13 +85,13 @@
 #'
 #' Crawford, J. R., & Garthwaite, P. H. (2007). Comparison of a single case to a
 #' control or normative sample in neuropsychology: Development of a Bayesian
-#' approach. \emph{Cognitive Neuropsychology, 24}(4), 343–372.
-#' \url{https://doi.org/10.1080/02643290701290146}
+#' approach. \emph{Cognitive Neuropsychology, 24}(4), 343-372.
+#' \doi{10.1080/02643290701290146}
 #'
 #' Crawford, J. R., Garthwaite, P. H., & Ryan, K. (2011). Comparing a single
 #' case to a control sample: Testing for neuropsychological deficits and
 #' dissociations in the presence of covariates. \emph{Cortex, 47}(10),
-#' 1166-1178. \url{https://doi.org/10.1016/j.cortex.2011.02.017}
+#' 1166-1178. \doi{10.1016/j.cortex.2011.02.017}
 #'
 #' Geoffrey Thompson (2019). CholWishart: Cholesky Decomposition of the Wishart
 #' Distribution. R package version 1.1.0.
@@ -304,9 +304,6 @@ BSDT <- function (case_a, case_b, controls_a, controls_b,
 
   alpha <- 1 - int_level
 
-  z_ast_est <- mean(z_ast)
-  names(z_ast_est) <- "est. z"
-
   zdcc_int <- stats::quantile(z_ast, c(alpha/2, (1 - alpha/2)))
   names(zdcc_int) <- c("Lower Z-DCC CI", "Upper Z-DCC CI")
 
@@ -324,31 +321,35 @@ BSDT <- function (case_a, case_b, controls_a, controls_b,
   estimate <- c(std_a, std_b, zdcc, ifelse(alternative == "two.sided", (p_est/2*100), p_est*100))
 
   if (alternative == "two.sided") {
-    alt.p.name <- "Proportion of control population with more extreme task difference, "
+    if (zdcc < 0) {
+      alt.p.name <- "Proportion below case (%), "
+    } else {
+      alt.p.name <- "Proportion above case (%), "
+    }
   } else if (alternative == "greater") {
-    alt.p.name <- "Proportion of control population with more positive task difference, "
+    alt.p.name <- "Proportion above case (%), "
   } else {
-    alt.p.name <- "Proportion of control population with more negative task difference, "
+    alt.p.name <- "Proportion below case (%), "
   }
 
   p.name <- paste0(alt.p.name,
-                   100*int_level, "% credible interval [",
+                   100*int_level, "% CI [",
                    format(round(p_int[1], 2), nsmall = 2),", ",
                    format(round(p_int[2], 2), nsmall = 2),"]")
 
-  zdcc.name <- paste0("Standardised task discrepancy (Z-DCC), ",
-                     100*int_level, "% credible interval [",
+  zdcc.name <- paste0("Std. discrepancy (Z-DCC), ",
+                     100*int_level, "% CI [",
                      format(round(zdcc_int[1], 2), nsmall = 2),", ",
                      format(round(zdcc_int[2], 2), nsmall = 2),"]")
 
-  names(estimate) <- c("Standardised case score, task A (Z-CC)",
-                       "Standardised case score, task B (Z-CC)",
+  names(estimate) <- c("Std. case score, task A (Z-CC)",
+                       "Std. case score, task B (Z-CC)",
                        zdcc.name,
                        p.name)
 
 
   typ.int <- 100*int_level
-  names(typ.int) <- "Interval level (%)"
+  names(typ.int) <- "Credible (%)"
   interval <- c(typ.int, zdcc_int, p_int)
 
 
@@ -360,14 +361,13 @@ BSDT <- function (case_a, case_b, controls_a, controls_b,
   names(con_m_b) <- "Mean (controls)"
   names(con_sd_b) <- "SD (controls)"
   names(n) <- "Sample size"
-  dname <- paste0("Case score A: ", format(round(case_a, 2), nsmall = 2), ", ",
-                  "Case score B: ", format(round(case_b, 2), nsmall = 2), ", ",
-                  "Controls A (mean, sd): (", format(round(con_m_a, 2), nsmall = 2), ", ",format(round(con_sd_a, 2), nsmall = 2), "), ",
-                  "Controls B (mean, sd): (", format(round(con_m_b, 2), nsmall = 2), ", ",format(round(con_sd_b, 2), nsmall = 2), ")")
+  dname <- paste0("Case A: ", format(round(case_a, 2), nsmall = 2), ", ",
+                  "B: ", format(round(case_b, 2), nsmall = 2), ", ",
+                  "Ctrl. A (m, sd): (", format(round(con_m_a, 2), nsmall = 2), ",",format(round(con_sd_a, 2), nsmall = 2), "), ",
+                  "B: (", format(round(con_m_b, 2), nsmall = 2), ",",format(round(con_sd_b, 2), nsmall = 2), ")")
 
   # Build output to be able to set class as "htest" object. See documentation for "htest" class for more info
-  output <- list(statistic = z_ast_est,
-                 parameter = df,
+  output <- list(parameter = df,
                  p.value = p_est,
                  estimate = estimate,
                  null.value = null.value,

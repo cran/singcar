@@ -1,7 +1,5 @@
 ## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
-  dev = "png", 
-  dev.args = list(type = "cairo-png"),
   collapse = TRUE,
   comment = "#>"
 )

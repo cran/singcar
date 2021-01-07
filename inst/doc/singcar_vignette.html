@@ -14,19 +14,7 @@
 
 <title>singcar: Comparing Single Cases to Small Samples</title>
 
-<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
-// be compatible with the behavior of Pandoc < 2.8).
-document.addEventListener('DOMContentLoaded', function(e) {
-  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
-  var i, h, a;
-  for (i = 0; i < hs.length; i++) {
-    h = hs[i];
-    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
-    a = h.attributes;
-    while (a.length > 0) h.removeAttribute(a[0].name);
-  }
-});
-</script>
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -35,68 +23,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-      pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-      pre > code.sourceCode > span:empty { height: 1.2em; }
-      code.sourceCode > span { color: inherit; text-decoration: inherit; }
-      div.sourceCode { margin: 1em 0; }
-      pre.sourceCode { margin: 0; }
-      @media screen {
-      div.sourceCode { overflow: auto; }
-      }
-      @media print {
-      pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-      }
-      pre.numberSource code
-        { counter-reset: source-line 0; }
-      pre.numberSource code > span
-        { position: relative; left: -4em; counter-increment: source-line; }
-      pre.numberSource code > span > a:first-child::before
-        { content: counter(source-line);
-          position: relative; left: -1em; text-align: right; vertical-align: baseline;
-          border: none; display: inline-block;
-          -webkit-touch-callout: none; -webkit-user-select: none;
-          -khtml-user-select: none; -moz-user-select: none;
-          -ms-user-select: none; user-select: none;
-          padding: 0 4px; width: 4em;
-          color: #aaaaaa;
-        }
-      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-      div.sourceCode
-        {   }
-      @media screen {
-      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-      }
-      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #7d9029; } /* Attribute */
-      code span.bn { color: #40a070; } /* BaseN */
-      code span.bu { } /* BuiltIn */
-      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #4070a0; } /* Char */
-      code span.cn { color: #880000; } /* Constant */
-      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-      code span.dt { color: #902000; } /* DataType */
-      code span.dv { color: #40a070; } /* DecVal */
-      code span.er { color: #ff0000; font-weight: bold; } /* Error */
-      code span.ex { } /* Extension */
-      code span.fl { color: #40a070; } /* Float */
-      code span.fu { color: #06287e; } /* Function */
-      code span.im { } /* Import */
-      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-      code span.op { color: #666666; } /* Operator */
-      code span.ot { color: #007020; } /* Other */
-      code span.pp { color: #bc7a00; } /* Preprocessor */
-      code span.sc { color: #4070a0; } /* SpecialChar */
-      code span.ss { color: #bb6688; } /* SpecialString */
-      code span.st { color: #4070a0; } /* String */
-      code span.va { color: #19177c; } /* Variable */
-      code span.vs { color: #4070a0; } /* VerbatimString */
-      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     </style>
 
 
@@ -190,187 +116,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<style type="text/css">body {
-background-color: #fff;
-margin: 1em auto;
-max-width: 700px;
-overflow: visible;
-padding-left: 2em;
-padding-right: 2em;
-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-font-size: 14px;
-line-height: 1.35;
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-#TOC {
-clear: both;
-margin: 0 0 10px 10px;
-padding: 4px;
-width: 400px;
-border: 1px solid #CCCCCC;
-border-radius: 5px;
-background-color: #f6f6f6;
-font-size: 13px;
-line-height: 1.3;
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-#TOC .toctitle {
-font-weight: bold;
-font-size: 15px;
-margin-left: 5px;
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-#TOC ul {
-padding-left: 40px;
-margin-left: -1.5em;
-margin-top: 5px;
-margin-bottom: 5px;
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
 }
-#TOC ul ul {
-margin-left: -2em;
+div.csl-indent {
+  margin-left: 2em;
 }
-#TOC li {
-line-height: 16px;
-}
-table {
-margin: 1em auto;
-border-width: 1px;
-border-color: #DDDDDD;
-border-style: outset;
-border-collapse: collapse;
-}
-table th {
-border-width: 2px;
-padding: 5px;
-border-style: inset;
-}
-table td {
-border-width: 1px;
-border-style: inset;
-line-height: 18px;
-padding: 5px 5px;
-}
-table, table th, table td {
-border-left-style: none;
-border-right-style: none;
-}
-table thead, table tr.even {
-background-color: #f7f7f7;
-}
-p {
-margin: 0.5em 0;
-}
-blockquote {
-background-color: #f6f6f6;
-padding: 0.25em 0.75em;
-}
-hr {
-border-style: solid;
-border: none;
-border-top: 1px solid #777;
-margin: 28px 0;
-}
-dl {
-margin-left: 0;
-}
-dl dd {
-margin-bottom: 13px;
-margin-left: 13px;
-}
-dl dt {
-font-weight: bold;
-}
-ul {
-margin-top: 0;
-}
-ul li {
-list-style: circle outside;
-}
-ul ul {
-margin-bottom: 0;
-}
-pre, code {
-background-color: #f7f7f7;
-border-radius: 3px;
-color: #333;
-white-space: pre-wrap; 
-}
-pre {
-border-radius: 3px;
-margin: 5px 0px 10px 0px;
-padding: 10px;
-}
-pre:not([class]) {
-background-color: #f7f7f7;
-}
-code {
-font-family: Consolas, Monaco, 'Courier New', monospace;
-font-size: 85%;
-}
-p > code, li > code {
-padding: 2px 0px;
-}
-div.figure {
-text-align: center;
-}
-img {
-background-color: #FFFFFF;
-padding: 2px;
-border: 1px solid #DDDDDD;
-border-radius: 3px;
-border: 1px solid #CCCCCC;
-margin: 0 5px;
-}
-h1 {
-margin-top: 0;
-font-size: 35px;
-line-height: 40px;
-}
-h2 {
-border-bottom: 4px solid #f7f7f7;
-padding-top: 10px;
-padding-bottom: 2px;
-font-size: 145%;
-}
-h3 {
-border-bottom: 2px solid #f7f7f7;
-padding-top: 10px;
-font-size: 120%;
-}
-h4 {
-border-bottom: 1px solid #f7f7f7;
-margin-left: 8px;
-font-size: 105%;
-}
-h5, h6 {
-border-bottom: 1px solid #ccc;
-font-size: 105%;
-}
-a {
-color: #0033dd;
-text-decoration: none;
-}
-a:hover {
-color: #6666ff; }
-a:visited {
-color: #800080; }
-a:visited:hover {
-color: #BB00BB; }
-a[href^="http:"] {
-text-decoration: underline; }
-a[href^="https:"] {
-text-decoration: underline; }
-
-code > span.kw { color: #555; font-weight: bold; } 
-code > span.dt { color: #902000; } 
-code > span.dv { color: #40a070; } 
-code > span.bn { color: #d14; } 
-code > span.fl { color: #d14; } 
-code > span.ch { color: #d14; } 
-code > span.st { color: #d14; } 
-code > span.co { color: #888888; font-style: italic; } 
-code > span.ot { color: #007020; } 
-code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; } 
-code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
 
 
 
@@ -388,7 +157,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">library</span>(singcar)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(singcar)</span></code></pre></div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>The aim of the R package <code>singcar</code> is to provide and encourage usage of
@@ -402,7 +171,7 @@ However, when this is not possible a control sample estimating the population,
 against which we wish to compare the patient, must be used. Both frequentist and
 Bayesian methods have been developed to do this providing transparent control
 over Type I errors, first and foremost by John Crawford and Paul Garthwaite
-<span class="citation">(Crawford et al., <a href="#ref-crawford_comparing_2011" role="doc-biblioref">2011</a>; Crawford &amp; Garthwaite, <a href="#ref-crawford_testing_2005" role="doc-biblioref">2005</a>, <a href="#ref-crawford_investigation_2002" role="doc-biblioref">2002</a>, <a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>; Crawford &amp; Howell, <a href="#ref-crawford_comparing_1998" role="doc-biblioref">1998</a>)</span>. It is these methods that
+<span class="citation">(<a href="#ref-crawford_comparing_2011" role="doc-biblioref">Crawford et al., 2011</a>; <a href="#ref-crawford_investigation_2002" role="doc-biblioref">Crawford &amp; Garthwaite, 2002</a>, <a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>, <a href="#ref-crawford_testing_2005" role="doc-biblioref">2005</a>; <a href="#ref-crawford_comparing_1998" role="doc-biblioref">Crawford &amp; Howell, 1998</a>)</span>. It is these methods that
 <code>singcar</code> implements. Due to the somewhat overlooked issue of Type II errors
 power calculators for these tests are also provided. Although the canonical
 applications for these tests are in Cognitive Neuropsychology or Clinical
@@ -414,17 +183,17 @@ detection in small samples.</p>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>You can install the developmental version of <code>singcar</code> by running the following:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">install_github</span>(<span class="st">&quot;jorittmo/singcar&quot;</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">&quot;singcar&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;jorittmo/singcar&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;singcar&quot;</span>)</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
 <p>The package comes with the dataset <code>size_weight_illusion</code>, a neuropsychological
 dataset from an investigation of the size-weight illusion in DF, a patient with
 visual form agnosia following following bilateral lesions to the lateral
-occipital complex <span class="citation">(Hassan et al., <a href="#ref-hassan_size-weight_2020" role="doc-biblioref">2020</a>)</span>. It was investigated whether
+occipital complex <span class="citation">(<a href="#ref-hassan_size-weight_2020" role="doc-biblioref">Hassan et al., 2020</a>)</span>. It was investigated whether
 DF experienced visual size-weight illusion to the same extent as controls (n = 28)
 and whether visual and kinesthetic size-weight illusion could be dissociable.
 Below follows examples of how to analyse this dataset using the tests provided
@@ -433,69 +202,69 @@ in <code>singcar</code>.</p>
 <h3>Testing for a deficit</h3>
 <p>If we want to assess whether DF has an impairment compared to controls on
 visual size-weight illusion we can test this using a modified two-sample t-test,
-called TD <span class="citation">(test of deficit: Crawford &amp; Howell, <a href="#ref-crawford_comparing_1998" role="doc-biblioref">1998</a>)</span>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>DF_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>CON_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">TD</span>(<span class="dt">case =</span> DF_V_SWI, <span class="dt">controls =</span> CON_V_SWI, <span class="dt">conf_int =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a><span class="co">#&gt;  Crawford-Howell (1998) t-test</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="co">#&gt; data:  case = 0.03 and controls (M = 0.16, SD = 0.08, N = 28)</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a><span class="co">#&gt; t = -1.7243, df = 27, p-value = 0.04804</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a><span class="co">#&gt; alternative hypothesis: true difference between case and controls is less than 0</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a><span class="co">#&gt; Standardised case score (Z-CC), 95% CI [-2.34, -1.15] </span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a><span class="co">#&gt;                                             -1.754857 </span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a><span class="co">#&gt;       Proportion below case (%), 95% CI [0.95, 12.47] </span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a><span class="co">#&gt;                                              4.804003</span></span></code></pre></div>
+called TD <span class="citation">(test of deficit: <a href="#ref-crawford_comparing_1998" role="doc-biblioref">Crawford &amp; Howell, 1998</a>)</span>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>DF_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>CON_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">TD</span>(<span class="at">case =</span> DF_V_SWI, <span class="at">controls =</span> CON_V_SWI, <span class="at">conf_int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Test of Deficit</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  Case = 0.03, Controls (m = 0.16, sd = 0.08, n = 28)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; t = -1.7243, df = 27, p-value = 0.04804</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference between case and controls is less than 0</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Std. case score (Z-CC), 95% CI [-2.34, -1.15] </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                       -1.754857 </span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Proportion below case (%), 95% CI [0.95, 12.47] </span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                        4.804003</span></span></code></pre></div>
 <p>This can similarly be tested with a Bayesian version of the same test,
-yielding approximately (since this test is based on MCMC methods) the same output <span class="citation">(Crawford &amp; Garthwaite, <a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>DF_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>CON_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="kw">BTD</span>(<span class="dt">case =</span> DF_V_SWI, <span class="dt">controls =</span> CON_V_SWI)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="co">#&gt;  Bayesian Test of deficit by Crawford and Garthwaite (2007)</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a><span class="co">#&gt; data:  case = 0.03 and controls (M = 0.16, SD = 0.08, N = 28)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a><span class="co">#&gt; est. z = -1.7404, df = 27, p-value = 0.04788</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a><span class="co">#&gt; alternative hypothesis: true difference between case and controls is less than 0</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a><span class="co">#&gt;   Std. case score (Z-CC), 95% credible interval [-2.34, -1.16] </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a><span class="co">#&gt;                                                      -1.754857 </span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a><span class="co">#&gt; Proportion below case (%), 95% credible interval [0.96, 12.36] </span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a><span class="co">#&gt;                                                       4.787751</span></span></code></pre></div>
+yielding approximately (since this test is based on MCMC methods) the same output <span class="citation">(<a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite, 2007</a>)</span>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>DF_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>CON_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">BTD</span>(<span class="at">case =</span> DF_V_SWI, <span class="at">controls =</span> CON_V_SWI)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Test of Deficit</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  Case = 0.03, Controls (m = 0.16, sd = 0.08, n = 28)</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; df = 27, p-value = 0.04833</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference between case and controls is less than 0</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Std. case score (Z-CC), 95% CI [-2.34, -1.15] </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                       -1.754857 </span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Proportion below case (%), 95% CI [0.96, 12.57] </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                        4.832849</span></span></code></pre></div>
 <p>If the control sample for a study is not appropriately matched to the case on
 variables such as e.g. age or education level it is appropriate to use tests
 that account for this by allowing for the inclusion of covariates. Including
 theoretically sound covariates is often a good idea. To do this
-<span class="citation">Crawford et al. (<a href="#ref-crawford_comparing_2011" role="doc-biblioref">2011</a>)</span> extended their Bayesian verison of the TD. This test
+<span class="citation"><a href="#ref-crawford_comparing_2011" role="doc-biblioref">Crawford et al.</a> (<a href="#ref-crawford_comparing_2011" role="doc-biblioref">2011</a>)</span> extended their Bayesian verison of the TD. This test
 assess the patient on the task of interest by essentially comparing him/her to
 the controls with the same score on the covariate.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>DF_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>CON_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="co"># Extracting the coviariate below</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>DF_age &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;YRS&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>CON_age &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;YRS&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="kw">BTD_cov</span>(<span class="dt">case_task =</span> DF_V_SWI, <span class="dt">case_covar =</span> DF_age, <span class="dt">control_task =</span> CON_V_SWI,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>        <span class="dt">control_covar =</span> CON_age, <span class="dt">iter =</span> <span class="dv">100</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a><span class="co">#&gt;  Bayesian Test of deficit with Covariates</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a><span class="co">#&gt; data:  case = 0.03 and controls (M = 0.16, SD = 0.08, N = 28)</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a><span class="co">#&gt; est. z = -1.6948, df = 26, p-value = 0.05272</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a><span class="co">#&gt; alternative hypothesis: true difference between case and controls is less than 0</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a><span class="co">#&gt;  Std. case score (Z-CCC), 95% credible interval [-2.30, -1.15] </span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a><span class="co">#&gt;                                                      -1.749556 </span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a><span class="co">#&gt; Proportion below case (%), 95% credible interval [1.07, 12.48] </span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a><span class="co">#&gt;                                                       5.271545</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DF_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>CON_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting the coviariate below</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>DF_age <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;YRS&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>CON_age <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;YRS&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">BTD_cov</span>(<span class="at">case_task =</span> DF_V_SWI, <span class="at">case_covar =</span> DF_age, <span class="at">control_task =</span> CON_V_SWI,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">control_covar =</span> CON_age, <span class="at">iter =</span> <span class="dv">100</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Test of Deficit with Covariates</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  Case = 0.03, Controls (m = 0.16, sd = 0.08, n = 28)</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; df = 26, p-value = 0.05838</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference between case and controls is less than 0</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Std. case score (Z-CCC), 95% CI [-2.29, -1.08] </span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                       -1.749556 </span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Proportion below case (%), 95% CI [1.09, 14.03] </span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                        5.837549</span></span></code></pre></div>
 </div>
 <div id="testing-for-a-dissociation" class="section level3">
 <h3>Testing for a dissociation</h3>
@@ -504,67 +273,63 @@ use a modified paired samples t-test to assess the size of the difference
 between the case scores from the two tasks to the distribution of differences
 between the tasks in the controls. This can however only be done directly using
 the t-distribution if the tasks are measured on the same scale and is called the
-unstandardised difference test <span class="citation">(UDT: Crawford &amp; Garthwaite, <a href="#ref-crawford_testing_2005" role="doc-biblioref">2005</a>)</span>. In the
+unstandardised difference test <span class="citation">(UDT: <a href="#ref-crawford_testing_2005" role="doc-biblioref">Crawford &amp; Garthwaite, 2005</a>)</span>. In the
 <code>size_weight_illusion</code> dataset it is possible to use this test to whether
 patient DF exhibits a dissociation between visual size-weight illusion and
 kinesthetic size-weight illusion because the visual and kinaesthetic conditions
 are parallel versions of the same task, with different sensory cues. This would
 be done as shown below:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>DF_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>CON_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="co"># Extracting scores from the kinesthetic size-weight illusion from size_weight_illusion </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>DF_K_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>CON_K_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="kw">UDT</span>(<span class="dt">case_a =</span> DF_V_SWI, <span class="dt">case_b =</span> DF_K_SWI, <span class="dt">controls_a =</span> CON_V_SWI, <span class="dt">controls_b =</span> CON_K_SWI)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="co">#&gt;  Unstandardised Difference Test</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a><span class="co">#&gt; data:  Case score A: 0.03, Case score B: 0.10, Controls A (mean, sd): (0.16, 0.08), Controls B (mean, sd): (0.18, 0.10)</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a><span class="co">#&gt; t = -0.6667, df = 27, p-value = 0.5106</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a><span class="co">#&gt; alternative hypothesis: true difference between tasks is not equal to 0</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a><span class="co">#&gt;                       Standardised case score, task A (Z-CC) </span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a><span class="co">#&gt;                                                  -0.13647439 </span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a><span class="co">#&gt;                       Standardised case score, task B (Z-CC) </span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a><span class="co">#&gt;                                                  -0.07931545 </span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a><span class="co">#&gt; Standardised task discrepancy (Z-DCC), 95% CI [-1.53, -0.59] </span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a><span class="co">#&gt;                                                  -1.06478887 </span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a><span class="co">#&gt;              Proportion below case (%), 95% CI [6.35, 27.68] </span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a><span class="co">#&gt;                                                  25.53097678</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>DF_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>CON_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the kinesthetic size-weight illusion from size_weight_illusion </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>DF_K_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>CON_K_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">UDT</span>(<span class="at">case_a =</span> DF_V_SWI, <span class="at">case_b =</span> DF_K_SWI, <span class="at">controls_a =</span> CON_V_SWI, <span class="at">controls_b =</span> CON_K_SWI)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Unstandardised Difference Test</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  Case A: 0.03, B: 0.10, Ctrl. A (m, sd): (0.16, 0.08), B: (0.18, 0.10)</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; t = -0.6667, df = 27, p-value = 0.5106</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference between tasks is not equal to 0</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                       Std. case score, task A (Z-CC) </span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                          -0.13647439 </span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                       Std. case score, task B (Z-CC) </span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                          -0.07931545 </span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Std. task discrepancy (Z-DCC), 95% CI [-1.53, -0.59] </span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                          -1.06478887 </span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Proportion below case (%), 95% CI [6.35, 27.68] </span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                          25.53097678</span></span></code></pre></div>
 <p>Most often this is not possible because we wish to estimate abnormality of
 discrepancy on tasks that are not comparable. So otherwise, that
 is if the scores must be standardised to be comparable, a statistic that
 approximates the t-distribution has been developed and should be used <span class="citation">(the
-revised standardised difference test RSDT: Crawford &amp; Garthwaite, <a href="#ref-crawford_testing_2005" role="doc-biblioref">2005</a>)</span>.
+revised standardised difference test RSDT: <a href="#ref-crawford_testing_2005" role="doc-biblioref">Crawford &amp; Garthwaite, 2005</a>)</span>.
 The visual and kinesthetic size-weight illusion will be used for illustrative
 purposes here as well:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>DF_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>CON_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="co"># Extracting scores from the kinesthetic size-weight illusion from size_weight_illusion </span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>DF_K_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>CON_K_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="kw">RSDT</span>(<span class="dt">case_a =</span> DF_V_SWI, <span class="dt">case_b =</span> DF_K_SWI, <span class="dt">controls_a =</span> CON_V_SWI, <span class="dt">controls_b =</span> CON_K_SWI)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a><span class="co">#&gt;  Revised Standardised Difference Test</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a><span class="co">#&gt; data:  Case score A: 0.03, Case score B: 0.10, Controls A (mean, sd): (0.16, 0.08), Controls B (mean, sd): (0.18, 0.10)</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a><span class="co">#&gt; approx. abs. t = 1.015, df = 27, p-value = 0.3191</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a><span class="co">#&gt; alternative hypothesis: true difference between tasks is not equal to 0</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a><span class="co">#&gt;                             Standardised case score, task A (Z-CC) </span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a><span class="co">#&gt;                                                         -1.7548574 </span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a><span class="co">#&gt;                             Standardised case score, task B (Z-CC) </span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true"></a><span class="co">#&gt;                                                         -0.7836956 </span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true"></a><span class="co">#&gt;                              Standardised task discrepancy (Z-DCC) </span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true"></a><span class="co">#&gt;                                                         -1.0647889 </span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true"></a><span class="co">#&gt; Proportion of control population with more extreme task difference </span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true"></a><span class="co">#&gt;                                                         15.9560625</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>DF_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>CON_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the kinesthetic size-weight illusion from size_weight_illusion </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>DF_K_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>CON_K_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">RSDT</span>(<span class="at">case_a =</span> DF_V_SWI, <span class="at">case_b =</span> DF_K_SWI, <span class="at">controls_a =</span> CON_V_SWI, <span class="at">controls_b =</span> CON_K_SWI)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Revised Standardised Difference Test</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  Case A: 0.03, B: 0.10, Ctrl. A (m, sd): (0.16, 0.08), B: (0.18, 0.10)</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; approx. abs. t = 1.015, df = 27, p-value = 0.3191</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference between tasks is not equal to 0</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Std. case score, task A (Z-CC) Std. case score, task B (Z-CC) </span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                     -1.7548574                     -0.7836956 </span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Std. task discrepancy (Z-DCC)      Proportion below case (%) </span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                     -1.0647889                     15.9560625</span></span></code></pre></div>
 <p>A Bayesian version of this test was also developed (Crawford &amp; Garthwaite, 2005),
 however, unlike <code>TD</code> and <code>BTD</code> the <code>RSDT</code> and <code>BSDT</code> (Bayesian standardised
 difference test) differ somewhat and <code>BSDT</code> has been shown to keep a better
@@ -572,63 +337,63 @@ control of Type I errors if a patient exhibits extreme deficits on both tasks of
 interest. Therefore the <code>BSDT</code> is recommended above <code>RSDT</code>. The usage of the two
 R functions is very similar. Since the <code>BSDT</code> is based on MCMC methods it can be
 quite computationally intensive, depending on the number of iterations you choose.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>DF_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>CON_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a><span class="co"># Extracting scores from the kinesthetic size-weight illusion from size_weight_illusion </span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>DF_K_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>CON_K_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a><span class="kw">BSDT</span>(<span class="dt">case_a =</span> DF_V_SWI, <span class="dt">case_b =</span> DF_K_SWI, <span class="dt">controls_a =</span> CON_V_SWI, <span class="dt">controls_b =</span> CON_K_SWI, <span class="dt">iter =</span> <span class="dv">1000</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a><span class="co">#&gt;  Bayesian Standardised Difference Test</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a><span class="co">#&gt; data:  Case score A: 0.03, Case score B: 0.10, Controls A (mean, sd): (0.16, 0.08), Controls B (mean, sd): (0.18, 0.10)</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a><span class="co">#&gt; est. z = -1.0378, df = 26, p-value = 0.323</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a><span class="co">#&gt; alternative hypothesis: true difference between tasks is not equal to 0</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a><span class="co">#&gt;                                                                  Standardised case score, task A (Z-CC) </span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a><span class="co">#&gt;                                                                                              -1.7548574 </span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a><span class="co">#&gt;                                                                  Standardised case score, task B (Z-CC) </span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a><span class="co">#&gt;                                                                                              -0.7836956 </span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true"></a><span class="co">#&gt;                             Standardised task discrepancy (Z-DCC), 95% credible interval [-1.68, -0.43] </span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true"></a><span class="co">#&gt;                                                                                              -1.0647889 </span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true"></a><span class="co">#&gt; Proportion of control population with more extreme task difference, 95% credible interval [4.61, 33.54] </span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true"></a><span class="co">#&gt;                                                                                              16.1489131</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>DF_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>CON_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the kinesthetic size-weight illusion from size_weight_illusion </span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>DF_K_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>CON_K_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">BSDT</span>(<span class="at">case_a =</span> DF_V_SWI, <span class="at">case_b =</span> DF_K_SWI, <span class="at">controls_a =</span> CON_V_SWI, <span class="at">controls_b =</span> CON_K_SWI, <span class="at">iter =</span> <span class="dv">1000</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Standardised Difference Test</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  Case A: 0.03, B: 0.10, Ctrl. A (m, sd): (0.16,0.08), B: (0.18,0.10)</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; df = 26, p-value = 0.3158</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference between tasks is not equal to 0</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                  Std. case score, task A (Z-CC) </span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                      -1.7548574 </span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                  Std. case score, task B (Z-CC) </span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                      -0.7836956 </span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Std. discrepancy (Z-DCC), 95% CI [-1.69, -0.47] </span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                      -1.0647889 </span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Proportion below case (%), 95% CI [4.52, 31.95] </span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                      15.7884713</span></span></code></pre></div>
 <p>Just as for <code>BTD</code> a version of <code>BSDT</code> allowing for
 covariates has been developed. This test assess the patient on the discrepancy
 between the tasks of interest by essentially comparing him/her to the controls
 with the same score on the covariate.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>DF_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>CON_V_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>DF_K_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>CON_K_SWI &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a><span class="co"># Extracting the coviariate below</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>DF_age &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">==</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;YRS&quot;</span>] <span class="co"># Patient</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>CON_age &lt;-<span class="st"> </span>size_weight_illusion[size_weight_illusion<span class="op">$</span>PPT <span class="op">!=</span><span class="st"> &quot;DF&quot;</span>, <span class="st">&quot;YRS&quot;</span>] <span class="co"># Controls</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="kw">BSDT_cov</span>(<span class="dt">case_tasks =</span> <span class="kw">c</span>(DF_V_SWI, DF_K_SWI ), <span class="dt">case_covar =</span> DF_age,</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>         <span class="dt">control_tasks =</span> <span class="kw">cbind</span>(CON_V_SWI, CON_K_SWI), <span class="dt">control_covar =</span> CON_age, <span class="dt">iter =</span> <span class="dv">1000</span>)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a><span class="co">#&gt;  Bayesian Standardised Difference Test with Covariates</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a><span class="co">#&gt; </span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a><span class="co">#&gt; data:  Case score A: 0.03, Case score B: 0.10, Controls score A: 0.16, Controls score B: 0.18</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a><span class="co">#&gt; ave. z = -1.0173, df = 25, p-value = 0.334</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a><span class="co">#&gt; alternative hypothesis: true difference between tasks is not equal to 0</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a><span class="co">#&gt;                                                                  Standardised case score, task A (Z-CC) </span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a><span class="co">#&gt;                                                                                               -1.754857 </span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true"></a><span class="co">#&gt;                                                                  Standardised case score, task B (Z-CC) </span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true"></a><span class="co">#&gt;                                                                                               -0.783696 </span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true"></a><span class="co">#&gt;                            Standardised task discrepancy (Z-DCCC), 95% credible interval [-1.66, -0.38] </span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true"></a><span class="co">#&gt;                                                                                               -1.064152 </span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true"></a><span class="co">#&gt; Proportion of control population with more extreme task difference, 95% credible interval [4.82, 35.14] </span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true"></a><span class="co">#&gt;                                                                                               16.700000</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting scores from the visual size-weight illusion from size_weight_illusion </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>DF_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>CON_V_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;V_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>DF_K_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>CON_K_SWI <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;K_SWI&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting the coviariate below</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>DF_age <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">==</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;YRS&quot;</span>] <span class="co"># Patient</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>CON_age <span class="ot">&lt;-</span> size_weight_illusion[size_weight_illusion<span class="sc">$</span>PPT <span class="sc">!=</span> <span class="st">&quot;DF&quot;</span>, <span class="st">&quot;YRS&quot;</span>] <span class="co"># Controls</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">BSDT_cov</span>(<span class="at">case_tasks =</span> <span class="fu">c</span>(DF_V_SWI, DF_K_SWI ), <span class="at">case_covar =</span> DF_age,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">control_tasks =</span> <span class="fu">cbind</span>(CON_V_SWI, CON_K_SWI), <span class="at">control_covar =</span> CON_age, <span class="at">iter =</span> <span class="dv">1000</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Bayesian Standardised Difference Test with Covariates</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  Case A = 0.03, B = 0.10, Ctrl. (m, sd) A: (0.16,0.08), B: (0.18,0.10)</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; df = 25, p-value = 0.3282</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference between tasks is not equal to 0</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                   Std. case score, task A (Z-CC) </span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                        -1.754857 </span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                   Std. case score, task B (Z-CC) </span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                        -0.783696 </span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Std. discrepancy (Z-DCCC), 95% CI [-1.70, -0.42] </span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                        -1.064152 </span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Proportion below case (%), 95% CI [4.45, 33.80] </span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                        16.410000</span></span></code></pre></div>
 <p>All of the functions above can also take summary (mean, sd, control sample size) data as input.</p>
 </div>
 <div id="power-calculators" class="section level3">
@@ -644,22 +409,22 @@ standard deviations for the control population are at default set to 0 and 1
 meaning that the case value will be interpreted as differences from the mean in
 standard deviations, these parameter values can be changed as you like. Examples
 are given below:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">TD_power</span>(<span class="dt">case =</span> <span class="dv">-2</span>, <span class="dt">power =</span> <span class="fl">0.8</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="co">#&gt; Power (0.44280) will not increase more than 0.5% for any additional participant over n = 16</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="co">#&gt;    n     power</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="co">#&gt; 1 16 0.4428042</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="kw">TD_power</span>(<span class="dt">case =</span> <span class="dv">70</span>, <span class="dt">sample_size =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.1</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a><span class="co">#&gt; [1] 0.7039033</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a><span class="kw">RSDT_power</span>(<span class="dt">case_a =</span> <span class="dv">70</span>, <span class="dt">case_b =</span> <span class="dv">20</span>, <span class="dt">mean_a =</span> <span class="dv">100</span>, <span class="dt">mean_b =</span> <span class="dv">25</span>, <span class="dt">sd_a =</span> <span class="dv">15</span>, <span class="dt">sd_b =</span> <span class="dv">10</span>, <span class="dt">sample_size =</span> <span class="dv">10</span>) </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a><span class="co">#&gt; [1] 0.5525</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a><span class="co"># Takes long time to compute therefore iterations and number of simulations are low. Iter corresponds</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a><span class="co"># to number of simulations in BTD_cov, nsim to the number of simulations in the power calculator.</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a><span class="kw">BTD_cov_power</span>(<span class="dt">case =</span> <span class="dv">-2</span>, <span class="dt">case_cov =</span> <span class="dv">0</span>, <span class="dt">control_task =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>             <span class="dt">control_covar =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">cor_mat =</span> <span class="kw">diag</span>(<span class="dv">2</span>), <span class="dt">sample_size =</span> <span class="dv">10</span>, <span class="dt">nsim =</span> <span class="dv">50</span>, <span class="dt">iter =</span> <span class="dv">50</span>)</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a><span class="co">#&gt; [1] 0.48</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TD_power</span>(<span class="at">case =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Power (0.443) will not increase more than 0.5% per participant for n &gt; 16</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    n     power</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 16 0.4428042</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">TD_power</span>(<span class="at">case =</span> <span class="dv">70</span>, <span class="at">sample_size =</span> <span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.7039033</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">RSDT_power</span>(<span class="at">case_a =</span> <span class="dv">70</span>, <span class="at">case_b =</span> <span class="dv">20</span>, <span class="at">mean_a =</span> <span class="dv">100</span>, <span class="at">mean_b =</span> <span class="dv">25</span>, <span class="at">sd_a =</span> <span class="dv">15</span>, <span class="at">sd_b =</span> <span class="dv">10</span>, <span class="at">sample_size =</span> <span class="dv">10</span>) </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.2361</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Takes long time to compute therefore iterations and number of simulations are low. Iter corresponds</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># to number of simulations in BTD_cov, nsim to the number of simulations in the power calculator.</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">BTD_cov_power</span>(<span class="at">case =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">case_cov =</span> <span class="dv">0</span>, <span class="at">control_task =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">control_covar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">cor_mat =</span> <span class="fu">diag</span>(<span class="dv">2</span>), <span class="at">sample_size =</span> <span class="dv">10</span>, <span class="at">nsim =</span> <span class="dv">50</span>, <span class="at">iter =</span> <span class="dv">50</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.56</span></span></code></pre></div>
 </div>
 </div>
 <div id="functions" class="section level2">
@@ -735,8 +500,8 @@ small sample sizes. This means that underestimation of <span class="math inline"
 than overestimation and hence the z-value would often be larger than it should,
 resulting in an overestimation of the abnormality and inflation of Type I errors
 (claiming that there is an effect when, in fact, there is not)
-<span class="citation">(Crawford &amp; Howell, <a href="#ref-crawford_comparing_1998" role="doc-biblioref">1998</a>)</span>.</p>
-<p>With a similar logic as in <a href="#eq:1">(1)</a>, <span class="citation">Payne &amp; Gwynne Jones (<a href="#ref-payne_statistics_1957" role="doc-biblioref">1957</a>)</span> developed a method for assessing
+<span class="citation">(<a href="#ref-crawford_comparing_1998" role="doc-biblioref">Crawford &amp; Howell, 1998</a>)</span>.</p>
+<p>With a similar logic as in <a href="#eq:1">(1)</a>, <span class="citation"><a href="#ref-payne_statistics_1957" role="doc-biblioref">Payne &amp; Gwynne Jones</a> (<a href="#ref-payne_statistics_1957" role="doc-biblioref">1957</a>)</span> developed a method for assessing
 abnormally large discrepancies between two tasks. I.e. a test that estimates
 the proportion of the control population that would exhibit a greater discrepancy
 than the case, as seen in <a href="#eq:2">(2)</a>.</p>
@@ -751,8 +516,8 @@ the correlation between the two tasks calculated from the sample scores.
 However, this test suffers from the same problem mentioned above and would
 overestimate the abnormality of the task discrepancies.</p>
 <p>A different approach to comparing a single observation to the mean of a sample
-was proposed by <span class="citation">Sokal &amp; Rohlf (<a href="#ref-sokal_biometry_1981" role="doc-biblioref">1981</a>)</span> (p. 227) and popularised within
-neuropsychology by <span class="citation">Crawford &amp; Howell (<a href="#ref-crawford_comparing_1998" role="doc-biblioref">1998</a>)</span>. Here the t-distribution (with its
+was proposed by <span class="citation"><a href="#ref-sokal_biometry_1981" role="doc-biblioref">Sokal &amp; Rohlf</a> (<a href="#ref-sokal_biometry_1981" role="doc-biblioref">1981</a>)</span> (p. 227) and popularised within
+neuropsychology by <span class="citation"><a href="#ref-crawford_comparing_1998" role="doc-biblioref">Crawford &amp; Howell</a> (<a href="#ref-crawford_comparing_1998" role="doc-biblioref">1998</a>)</span>. Here the t-distribution (with its
 fatter tails) is utilised to account for the underestimation of the sample
 variance. The approach is a modified two samples t-test where the case simply is
 treated as a sample of size 1. The degrees of freedom for this distribution is
@@ -762,13 +527,13 @@ t_{n-1} = \frac{X^* - \overline{X}}{s \sqrt{\frac{n + 1}{n}}}
 \tag{3}
 \end{equation}\]</span></p>
 <p>This test of deficit (TD) has been shown to not exceed the specified error rate
-<span class="math inline">\(\alpha\)</span> unlike other similar tests <span class="citation">(Crawford et al., <a href="#ref-crawford_inferential_2004" role="doc-biblioref">2004</a>, <a href="#ref-crawford_comparing_2009" role="doc-biblioref">2009</a>; Crawford &amp; Garthwaite, <a href="#ref-crawford_single-case_2012" role="doc-biblioref">2012</a>)</span>. Together with its
+<span class="math inline">\(\alpha\)</span> unlike other similar tests <span class="citation">(<a href="#ref-crawford_inferential_2004" role="doc-biblioref">Crawford et al., 2004</a>, <a href="#ref-crawford_comparing_2009" role="doc-biblioref">2009</a>; <a href="#ref-crawford_single-case_2012" role="doc-biblioref">Crawford &amp; Garthwaite, 2012</a>)</span>. Together with its
 simplicity this makes it a superior choice over many other ways of
 detecting outliers in small samples. One of its main advantages is that it
 provides the researcher with an <em>unbiased</em> point estimate of the abnormality of
 the case.</p>
-<p><span class="citation">Crawford et al. (<a href="#ref-crawford_payne_1998" role="doc-biblioref">1998</a>)</span> extended this to <span class="citation">Payne &amp; Gwynne Jones (<a href="#ref-payne_statistics_1957" role="doc-biblioref">1957</a>)</span> test of task
-discrepancy or with <span class="citation">Crawford et al. (<a href="#ref-crawford_payne_1998" role="doc-biblioref">1998</a>)</span>&#39;s denotation: ‘difference’<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. I.e. they devised a test that treated sample
+<p><span class="citation"><a href="#ref-crawford_payne_1998" role="doc-biblioref">Crawford et al.</a> (<a href="#ref-crawford_payne_1998" role="doc-biblioref">1998</a>)</span> extended this to <span class="citation"><a href="#ref-payne_statistics_1957" role="doc-biblioref">Payne &amp; Gwynne Jones</a> (<a href="#ref-payne_statistics_1957" role="doc-biblioref">1957</a>)</span> test of task
+discrepancy or with <span class="citation"><a href="#ref-crawford_payne_1998" role="doc-biblioref">Crawford et al.</a> (<a href="#ref-crawford_payne_1998" role="doc-biblioref">1998</a>)</span>&#39;s denotation: ‘difference’<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. I.e. they devised a test that treated sample
 estimations as statistics rather than population parameters for dissociations as well, seen
 in <a href="#eq:4">(4)</a>.
 <span class="math display" id="eq:4">\[\begin{equation}
@@ -790,7 +555,7 @@ since <span class="math inline">\(s_a^2\)</span> and <span class="math inline">\
 However, since assessment of task discrepancy between tasks measured on different scales
 is common, a test that could take standardised scores but still account for the skewness in
 the sampling distribution of the sample variance was needed. In
-<span class="citation">Garthwaite &amp; Crawford (<a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">2004</a>)</span> the authors examined the difference between two
+<span class="citation"><a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">Garthwaite &amp; Crawford</a> (<a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">2004</a>)</span> the authors examined the difference between two
 correlated, t distributed variables and aimed to derive a quantity with a
 distribution that would not depend on any population parameters. The math
 behind this derivation is too technical to be covered here, but
@@ -809,11 +574,11 @@ approximate a t-distribution. The quantity found was:</p>
 }}
 \end{equation}\]</span></p>
 <p>Where <span class="math inline">\(r\)</span> is the correlation between the tasks and <span class="math inline">\(y\)</span> the critical two-tailed
-t-value with <span class="math inline">\(n-1\)</span> degrees of freedom. <span class="citation">Garthwaite &amp; Crawford (<a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">2004</a>)</span> demonstrate
+t-value with <span class="math inline">\(n-1\)</span> degrees of freedom. <span class="citation"><a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">Garthwaite &amp; Crawford</a> (<a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">2004</a>)</span> demonstrate
 that <span class="math inline">\(\mathbb{P}[\psi &gt; y]\approx\mathbb{P}[t &gt;y]\)</span>, where <span class="math inline">\(\approx\)</span> indicates
 approximate equivalence. To obtain a precise probability for <span class="math inline">\(\psi\)</span> one solves
-for <span class="math inline">\(\psi = y\)</span>. See <span class="citation">Garthwaite &amp; Crawford (<a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">2004</a>)</span> and
-<span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_testing_2005" role="doc-biblioref">2005</a>)</span> for details. Choosing the positive root of <span class="math inline">\(\psi = y\)</span> yields:</p>
+for <span class="math inline">\(\psi = y\)</span>. See <span class="citation"><a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">Garthwaite &amp; Crawford</a> (<a href="#ref-garthwaite_distribution_2004" role="doc-biblioref">2004</a>)</span> and
+<span class="citation"><a href="#ref-crawford_testing_2005" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_testing_2005" role="doc-biblioref">2005</a>)</span> for details. Choosing the positive root of <span class="math inline">\(\psi = y\)</span> yields:</p>
 <p><span class="math display" id="eq:7">\[\begin{align}
 \begin{split}
 y &amp; = \sqrt{\frac{ -b + \sqrt{b^2 - 4ac}}{2a}}, \text{where} \\
@@ -824,19 +589,19 @@ c &amp; =  - 2\left[\frac{X^*_{A} - \overline{X}_A}{s_A}-\frac{X^*_B -\overline{
 \tag{6}
 \end{align}\]</span></p>
 <p>Where <span class="math inline">\(y\)</span> is used as a t-statistic. This quantity is referred to as the revised
-standardised difference test (RSDT). <span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_testing_2005" role="doc-biblioref">2005</a>)</span> show with Monte
+standardised difference test (RSDT). <span class="citation"><a href="#ref-crawford_testing_2005" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_testing_2005" role="doc-biblioref">2005</a>)</span> show with Monte
 Carlo simulations that this test is superior to both their own previous test
-<span class="citation">(Crawford et al., <a href="#ref-crawford_payne_1998" role="doc-biblioref">1998</a>)</span> and <span class="citation">Payne &amp; Gwynne Jones (<a href="#ref-payne_statistics_1957" role="doc-biblioref">1957</a>)</span>&#39;s in controlling Type I
+<span class="citation">(<a href="#ref-crawford_payne_1998" role="doc-biblioref">Crawford et al., 1998</a>)</span> and <span class="citation"><a href="#ref-payne_statistics_1957" role="doc-biblioref">Payne &amp; Gwynne Jones</a> (<a href="#ref-payne_statistics_1957" role="doc-biblioref">1957</a>)</span>&#39;s in controlling Type I
 errors. Even for very small sample sizes of <span class="math inline">\(n=5\)</span>, RSDT was shown to barely
 exceed the specified 5% error rate. So three valid frequentist tests remain, for
 deficits that is TD <a href="#eq:3">(3)</a>, for dissociations that is UDT <a href="#eq:5">(5)</a> and
 RSDT <a href="#eq:7">(6)</a>.</p>
-<p>For TD and UDT, <span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_investigation_2002" role="doc-biblioref">2002</a>)</span> utilise the
+<p>For TD and UDT, <span class="citation"><a href="#ref-crawford_investigation_2002" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_investigation_2002" role="doc-biblioref">2002</a>)</span> utilise the
 non-central t-distribution to set confidence limits on the abnormality of the
 case, something that grows ever more essential for reminding us that all test results
 come with uncertainty. However, it did not prove possible to set confidence
 limits on the estimations from the RSDT since it is only approximately t-distributed.
-This is one of the reasons why <span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span>
+This is one of the reasons why <span class="citation"><a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span>
 wanted to develop a Bayesian method for estimating abnormality of discrepancy.</p>
 <p>The test of deficit is most commonly used one-sided but the
 dissociation tests should in most cases be used two-sided as the direction
@@ -920,7 +685,7 @@ probability of observing that <span class="math inline">\(\mu\)</span> in the pr
 all possible hypotheses, just as previously shown. Often one wants to use
 non-informative priors as to not arbitrarily bias the results. For an accessible
 and more thorough explanation of Bayesian statistics, see e.g.
-<span class="citation">Donovan &amp; Mickey (<a href="#ref-donovan_bayesian_2019" role="doc-biblioref">2019</a>)</span>.</p>
+<span class="citation"><a href="#ref-donovan_bayesian_2019" role="doc-biblioref">Donovan &amp; Mickey</a> (<a href="#ref-donovan_bayesian_2019" role="doc-biblioref">2019</a>)</span>.</p>
 <p>The example given here is a special case of Bayesian parameter estimation
 that can be solved analytically.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> However, this is in many
 cases not possible. Instead one utilise Markov Chain Monte Carlo (MCMC) methods.
@@ -947,9 +712,9 @@ they form. The average of which often is the parameter of interest.</p>
 <p>Assume a sample of <span class="math inline">\(n\)</span> controls on which we measure some value x that is
 normally distributed with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Let <span class="math inline">\(\overline{x}\)</span>
 and <span class="math inline">\(s^2\)</span> denote the sample mean and sample variance respectively. The case is
-denoted <span class="math inline">\(x^*\)</span>. The prior used is non-informative, see <span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span>
-and <span class="citation">DeGroot &amp; Schervish (<a href="#ref-degroot_probability_2012" role="doc-biblioref">2012</a>)</span> (p. 495) for the formal specification of the
-prior. The algorithm developed in <span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> for obtaining a
+denoted <span class="math inline">\(x^*\)</span>. The prior used is non-informative, see <span class="citation"><a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span>
+and <span class="citation"><a href="#ref-degroot_probability_2012" role="doc-biblioref">DeGroot &amp; Schervish</a> (<a href="#ref-degroot_probability_2012" role="doc-biblioref">2012</a>)</span> (p. 495) for the formal specification of the
+prior. The algorithm developed in <span class="citation"><a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> for obtaining a
 point estimate of a case’s abnormality <span class="math inline">\(p\)</span>, i.e. a p-value or the proportion of
 controls that would fall below the case and accompanying intervals is as
 follows:</p>
@@ -970,11 +735,11 @@ of <span class="math inline">\(\hat{p}\)</span>, the average of which is the poi
 e.g. 1000 times, the 25th smallest and 25th largest <span class="math inline">\(\hat{p}_i\)</span> (<span class="math inline">\(i\)</span> for iteration) is the lower and
 upper boundaries of the 95% Bayesian credible interval for <span class="math inline">\(p\)</span>.</p></li>
 </ol>
-<p><span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span>
+<p><span class="citation"><a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span>
 show that this method yields converging results to that of TD <a href="#eq:3">(3)</a>.
 As noted, this is often the case when using a non-informative
 prior, however, not always. For example, RSDT and its Bayesian analogue (BSDT)
-do not produce identical results. <span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> showed that when
+do not produce identical results. <span class="citation"><a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> showed that when
 there was no discrepancy between task A and B, but the case was severely impaired
 on both of them, RSDT exhibited an error rate much larger than the specified
 <span class="math inline">\(\alpha\)</span>-level. For example, when the case had a deficit of 8 SD on both task A
@@ -1011,8 +776,8 @@ note that the parameters are bolded as to represent the vector and matrix:</p>
 dissociation tests we want to estimate the proportion <span class="math inline">\(p\)</span> of the control
 population that would exhibit a greater difference <span class="math inline">\(x-y\)</span> than the case’s
 <span class="math inline">\(x^*-y^*\)</span>. A non-informative prior was again specified, see
-<span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> and <span class="citation">Jeffreys (<a href="#ref-jeffreys_theory_1998" role="doc-biblioref">1998</a>)</span>. The algorithm for
-obtaining <span class="math inline">\(\hat{p}_i\)</span>, the <span class="math inline">\(i\)</span>th estimation of <span class="math inline">\(p\)</span> in <span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> follows below:</p>
+<span class="citation"><a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> and <span class="citation"><a href="#ref-jeffreys_theory_1998" role="doc-biblioref">Jeffreys</a> (<a href="#ref-jeffreys_theory_1998" role="doc-biblioref">1998</a>)</span>. The algorithm for
+obtaining <span class="math inline">\(\hat{p}_i\)</span>, the <span class="math inline">\(i\)</span>th estimation of <span class="math inline">\(p\)</span> in <span class="citation"><a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> follows below:</p>
 <ol style="list-style-type: decimal">
 <li><p>Let
 <span class="math display">\[\begin{equation*}
@@ -1064,7 +829,7 @@ Bayesian credible interval for <span class="math inline">\(p\)</span>.</p></li>
 <h4>Bayesian tests allowing for covariates</h4>
 <p>The need to use matched samples when comparing a single case
 to a control sample has often often led to control
-samples being small. In an attempt to remedy this <span class="citation">Crawford et al. (<a href="#ref-crawford_comparing_2011" role="doc-biblioref">2011</a>)</span>
+samples being small. In an attempt to remedy this <span class="citation"><a href="#ref-crawford_comparing_2011" role="doc-biblioref">Crawford et al.</a> (<a href="#ref-crawford_comparing_2011" role="doc-biblioref">2011</a>)</span>
 followed up the previously described tests by developing methods that allow
 for the case to be assessed on abnormality in the presence of covariates.
 That is, the tests let you compare the case’s score on the task of interest
@@ -1075,15 +840,15 @@ This reduces the need to perfectly match control samples and is thus
 a major contribution to the field.</p>
 <p>The procedural details of these tests are soon going to be updated in the
 current vignette, but if used before that one thing is important to note. In
-<span class="citation">Crawford et al. (<a href="#ref-crawford_comparing_2011" role="doc-biblioref">2011</a>)</span> they change the recommendation of the prior to use,
-when testing for a dissociation. In <span class="citation">Berger &amp; Sun (<a href="#ref-berger_objective_2008" role="doc-biblioref">2008</a>)</span> it is shown that
-the prior used in <span class="citation">Crawford &amp; Garthwaite (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> has good frequentist properties
+<span class="citation"><a href="#ref-crawford_comparing_2011" role="doc-biblioref">Crawford et al.</a> (<a href="#ref-crawford_comparing_2011" role="doc-biblioref">2011</a>)</span> they change the recommendation of the prior to use,
+when testing for a dissociation. In <span class="citation"><a href="#ref-berger_objective_2008" role="doc-biblioref">Berger &amp; Sun</a> (<a href="#ref-berger_objective_2008" role="doc-biblioref">2008</a>)</span> it is shown that
+the prior used in <span class="citation"><a href="#ref-crawford_comparison_2007" role="doc-biblioref">Crawford &amp; Garthwaite</a> (<a href="#ref-crawford_comparison_2007" role="doc-biblioref">2007</a>)</span> has good frequentist properties
 for estimating <span class="math inline">\(\sigma_x\)</span> and <span class="math inline">\(\sigma_y\)</span> but less so for <span class="math inline">\(\rho\)</span> or the
 discrepancy size. Instead they recommend a calibrated prior. The main
 difference being that an accept/reject algorithm is applied after the initial
 draw from the inverse-Wishart distribution. Many Bayesians would argue that
 good frequentist properties are not necessary when conducting a Bayesian
-analysis. If so, one can use the “standard theory” <span class="citation">Jeffreys (<a href="#ref-jeffreys_theory_1998" role="doc-biblioref">1998</a>)</span>&#39;s
+analysis. If so, one can use the “standard theory” <span class="citation"><a href="#ref-jeffreys_theory_1998" role="doc-biblioref">Jeffreys</a> (<a href="#ref-jeffreys_theory_1998" role="doc-biblioref">1998</a>)</span>&#39;s
 prior. In <code>singcar</code> both types of priors are implemented for both tests. If
 one wants to compare the results from them, the same prior should be used.</p>
 </div>
@@ -1092,57 +857,57 @@ one wants to compare the results from them, the same prior should be used.</p>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
-<div id="refs" class="references hanging-indent">
-<div id="ref-berger_objective_2008">
-<p>Berger, J. O., &amp; Sun, D. (2008). Objective Priors for the Bivariate Normal Model. <em>The Annals of Statistics</em>, <em>36</em>(2), 963–982.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-berger_objective_2008" class="csl-entry">
+Berger, J. O., &amp; Sun, D. (2008). Objective <span>Priors</span> for the <span>Bivariate</span> <span>Normal</span> <span>Model</span>. <em>The Annals of Statistics</em>, <em>36</em>(2), 963–982.
 </div>
-<div id="ref-crawford_testing_2005">
-<p>Crawford, J., &amp; Garthwaite, P. (2005). Testing for Suspected Impairments and Dissociations in Single-Case Studies in Neuropsychology: Evaluation of Alternatives Using Monte Carlo Simulations and Revised Tests for Dissociations. <em>Neuropsychology</em>, <em>19</em>(3), 318–331. <a href="https://doi.org/10.1037/0894-4105.19.3.318">https://doi.org/10.1037/0894-4105.19.3.318</a></p>
+<div id="ref-crawford_investigation_2002" class="csl-entry">
+Crawford, J., &amp; Garthwaite, P. (2002). Investigation of the single case in neuropsychology: Confidence limits on the abnormality of test scores and test score differences. <em>Neuropsychologia</em>, <em>40</em>(8), 1196–1208. <a href="https://doi.org/10.1016/S0028-3932(01)00224-X">https://doi.org/10.1016/S0028-3932(01)00224-X</a>
 </div>
-<div id="ref-crawford_investigation_2002">
-<p>Crawford, J., &amp; Garthwaite, P. (2002). Investigation of the single case in neuropsychology: Confidence limits on the abnormality of test scores and test score differences. <em>Neuropsychologia</em>, <em>40</em>(8), 1196–1208. <a href="https://doi.org/10.1016/S0028-3932(01)00224-X">https://doi.org/10.1016/S0028-3932(01)00224-X</a></p>
+<div id="ref-crawford_comparison_2007" class="csl-entry">
+Crawford, J., &amp; Garthwaite, P. (2007). Comparison of a single case to a control or normative sample in neuropsychology: <span>Development</span> of a <span>Bayesian</span> approach. <em>Cognitive Neuropsychology</em>, <em>24</em>(4), 343–372. <a href="https://doi.org/10.1080/02643290701290146">https://doi.org/10.1080/02643290701290146</a>
 </div>
-<div id="ref-crawford_comparison_2007">
-<p>Crawford, J., &amp; Garthwaite, P. (2007). Comparison of a single case to a control or normative sample in neuropsychology: Development of a Bayesian approach. <em>Cognitive Neuropsychology</em>, <em>24</em>(4), 343–372. <a href="https://doi.org/10.1080/02643290701290146">https://doi.org/10.1080/02643290701290146</a></p>
+<div id="ref-crawford_single-case_2012" class="csl-entry">
+Crawford, J., &amp; Garthwaite, P. (2012). Single-case research in neuropsychology: <span>A</span> comparison of five forms of t-test for comparing a case to controls. <em>Cortex</em>, <em>48</em>(8), 1009–1016. <a href="https://doi.org/10.1016/j.cortex.2011.06.021">https://doi.org/10.1016/j.cortex.2011.06.021</a>
 </div>
-<div id="ref-crawford_single-case_2012">
-<p>Crawford, J., &amp; Garthwaite, P. (2012). Single-case research in neuropsychology: A comparison of five forms of t-test for comparing a case to controls. <em>Cortex</em>, <em>48</em>(8), 1009–1016. <a href="https://doi.org/10.1016/j.cortex.2011.06.021">https://doi.org/10.1016/j.cortex.2011.06.021</a></p>
+<div id="ref-crawford_testing_2005" class="csl-entry">
+Crawford, J., &amp; Garthwaite, P. (2005). Testing for <span>Suspected</span> <span>Impairments</span> and <span>Dissociations</span> in <span>Single</span>-<span>Case</span> <span>Studies</span> in <span>Neuropsychology</span>: <span>Evaluation</span> of <span>Alternatives</span> <span>Using</span> <span>Monte</span> <span>Carlo</span> <span>Simulations</span> and <span>Revised</span> <span>Tests</span> for <span>Dissociations</span>. <em>Neuropsychology</em>, <em>19</em>(3), 318–331. <a href="https://doi.org/10.1037/0894-4105.19.3.318">https://doi.org/10.1037/0894-4105.19.3.318</a>
 </div>
-<div id="ref-crawford_comparing_2009">
-<p>Crawford, J., Garthwaite, P., &amp; Howell, D. (2009). On comparing a single case with a control sample: An alternative perspective. <em>Neuropsychologia</em>, <em>47</em>(13), 2690–2695. <a href="https://doi.org/10.1016/j.neuropsychologia.2009.04.011">https://doi.org/10.1016/j.neuropsychologia.2009.04.011</a></p>
+<div id="ref-crawford_comparing_2009" class="csl-entry">
+Crawford, J., Garthwaite, P., &amp; Howell, D. (2009). On comparing a single case with a control sample: <span>An</span> alternative perspective. <em>Neuropsychologia</em>, <em>47</em>(13), 2690–2695. <a href="https://doi.org/10.1016/j.neuropsychologia.2009.04.011">https://doi.org/10.1016/j.neuropsychologia.2009.04.011</a>
 </div>
-<div id="ref-crawford_inferential_2004">
-<p>Crawford, J., Garthwaite, P., Howell, D., &amp; Gray, C. (2004). Inferential methods for comparing a single case with a control sample: Modified t‐tests versus mycroft et al.’s (2002) modified anova. <em>Cognitive Neuropsychology</em>, <em>21</em>(7), 750–755. <a href="https://doi.org/10.1080/02643290342000276">https://doi.org/10.1080/02643290342000276</a></p>
+<div id="ref-crawford_inferential_2004" class="csl-entry">
+Crawford, J., Garthwaite, P., Howell, D., &amp; Gray, C. (2004). Inferential methods for comparing a single case with a control sample: Modified t‐tests versus mycroft et al.’s (2002) modified anova. <em>Cognitive Neuropsychology</em>, <em>21</em>(7), 750–755. <a href="https://doi.org/10.1080/02643290342000276">https://doi.org/10.1080/02643290342000276</a>
 </div>
-<div id="ref-crawford_comparing_2011">
-<p>Crawford, J., Garthwaite, P., &amp; Ryan, K. (2011). Comparing a single case to a control sample: Testing for neuropsychological deficits and dissociations in the presence of covariates. <em>Cortex</em>, <em>47</em>(10), 1166–1178. <a href="https://doi.org/10.1016/j.cortex.2011.02.017">https://doi.org/10.1016/j.cortex.2011.02.017</a></p>
+<div id="ref-crawford_comparing_2011" class="csl-entry">
+Crawford, J., Garthwaite, P., &amp; Ryan, K. (2011). Comparing a single case to a control sample: <span>Testing</span> for neuropsychological deficits and dissociations in the presence of covariates. <em>Cortex</em>, <em>47</em>(10), 1166–1178. <a href="https://doi.org/10.1016/j.cortex.2011.02.017">https://doi.org/10.1016/j.cortex.2011.02.017</a>
 </div>
-<div id="ref-crawford_comparing_1998">
-<p>Crawford, J., &amp; Howell, D. (1998). Comparing an Individual’s Test Score Against Norms Derived from Small Samples. <em>The Clinical Neuropsychologist</em>, <em>12</em>(4), 482–486. <a href="https://doi.org/10.1076/clin.12.4.482.7241">https://doi.org/10.1076/clin.12.4.482.7241</a></p>
+<div id="ref-crawford_comparing_1998" class="csl-entry">
+Crawford, J., &amp; Howell, D. (1998). Comparing an <span>Individual</span>’s <span>Test</span> <span>Score</span> <span>Against</span> <span>Norms</span> <span>Derived</span> from <span>Small</span> <span>Samples</span>. <em>The Clinical Neuropsychologist</em>, <em>12</em>(4), 482–486. <a href="https://doi.org/10.1076/clin.12.4.482.7241">https://doi.org/10.1076/clin.12.4.482.7241</a>
 </div>
-<div id="ref-crawford_payne_1998">
-<p>Crawford, J., Howell, D., &amp; Garthwaite, P. (1998). Payne and Jones Revisited: Estimating the Abnormality of Test Score Differences Using a Modified Paired Samples t Test. <em>Journal of Clinical and Experimental Neuropsychology</em>, <em>20</em>(6), 898–905. <a href="https://doi.org/10.1076/jcen.20.6.898.1112">https://doi.org/10.1076/jcen.20.6.898.1112</a></p>
+<div id="ref-crawford_payne_1998" class="csl-entry">
+Crawford, J., Howell, D., &amp; Garthwaite, P. (1998). Payne and <span>Jones</span> <span>Revisited</span>: <span>Estimating</span> the <span>Abnormality</span> of <span>Test</span> <span>Score</span> <span>Differences</span> <span>Using</span> a <span>Modified</span> <span>Paired</span> <span>Samples</span> t <span>Test</span>. <em>Journal of Clinical and Experimental Neuropsychology</em>, <em>20</em>(6), 898–905. <a href="https://doi.org/10.1076/jcen.20.6.898.1112">https://doi.org/10.1076/jcen.20.6.898.1112</a>
 </div>
-<div id="ref-degroot_probability_2012">
-<p>DeGroot, M. H., &amp; Schervish, M. J. (2012). <em>Probability and statistics</em> (4th ed). Addison-Wesley.</p>
+<div id="ref-degroot_probability_2012" class="csl-entry">
+DeGroot, M. H., &amp; Schervish, M. J. (2012). <em>Probability and statistics</em> (4th ed). Addison-Wesley.
 </div>
-<div id="ref-donovan_bayesian_2019">
-<p>Donovan, T., &amp; Mickey, R. M. (2019). <em>Bayesian Statistics for Beginners: A step-by-step approach</em> (1st ed.). Oxford University Press. <a href="https://doi.org/10.1093/oso/9780198841296.001.0001">https://doi.org/10.1093/oso/9780198841296.001.0001</a></p>
+<div id="ref-donovan_bayesian_2019" class="csl-entry">
+Donovan, T., &amp; Mickey, R. M. (2019). <em>Bayesian <span>Statistics</span> for <span>Beginners</span>: A step-by-step approach</em> (1st ed.). Oxford University Press. <a href="https://doi.org/10.1093/oso/9780198841296.001.0001">https://doi.org/10.1093/oso/9780198841296.001.0001</a>
 </div>
-<div id="ref-garthwaite_distribution_2004">
-<p>Garthwaite, P., &amp; Crawford, J. (2004). The distribution of the difference between two t -variates. <em>Biometrika</em>, <em>91</em>(4), 987–994.</p>
+<div id="ref-garthwaite_distribution_2004" class="csl-entry">
+Garthwaite, P., &amp; Crawford, J. (2004). The distribution of the difference between two t -variates. <em>Biometrika</em>, <em>91</em>(4), 987–994.
 </div>
-<div id="ref-hassan_size-weight_2020">
-<p>Hassan, E. K., Sedda, A., Buckingham, G., &amp; McIntosh, R. D. (2020). The size-weight illusion in visual form agnosic patient DF. <em>Neurocase</em>, 1–8. <a href="https://doi.org/10.1080/13554794.2020.1800748">https://doi.org/10.1080/13554794.2020.1800748</a></p>
+<div id="ref-hassan_size-weight_2020" class="csl-entry">
+Hassan, E. K., Sedda, A., Buckingham, G., &amp; McIntosh, R. D. (2020). The size-weight illusion in visual form agnosic patient <span>DF</span>. <em>Neurocase</em>, 1–8. <a href="https://doi.org/10.1080/13554794.2020.1800748">https://doi.org/10.1080/13554794.2020.1800748</a>
 </div>
-<div id="ref-jeffreys_theory_1998">
-<p>Jeffreys, H. (1998). <em>Theory of probability</em> (3rd ed). Clarendon Press ; Oxford University Press.</p>
+<div id="ref-jeffreys_theory_1998" class="csl-entry">
+Jeffreys, H. (1998). <em>Theory of probability</em> (3rd ed). Clarendon Press ; Oxford University Press.
 </div>
-<div id="ref-payne_statistics_1957">
-<p>Payne, R. W., &amp; Gwynne Jones, H. (1957). Statistics for the investigation of individual cases. <em>Journal of Clinical Psychology</em>, <em>13</em>(2), 115–121.</p>
+<div id="ref-payne_statistics_1957" class="csl-entry">
+Payne, R. W., &amp; Gwynne Jones, H. (1957). Statistics for the investigation of individual cases. <em>Journal of Clinical Psychology</em>, <em>13</em>(2), 115–121.
 </div>
-<div id="ref-sokal_biometry_1981">
-<p>Sokal, R. R., &amp; Rohlf, F. J. (1981). <em>Biometry: The Principles and Practice of Statistics in Biological Research</em>. W. H. Freeman. <a href="https://books.google.co.uk/books?id=C-OTQgAACAAJ">https://books.google.co.uk/books?id=C-OTQgAACAAJ</a></p>
+<div id="ref-sokal_biometry_1981" class="csl-entry">
+Sokal, R. R., &amp; Rohlf, F. J. (1981). <em>Biometry: <span>The</span> <span>Principles</span> and <span>Practice</span> of <span>Statistics</span> in <span>Biological</span> <span>Research</span></em>. W. H. Freeman. <a href="https://books.google.co.uk/books?id=C-OTQgAACAAJ">https://books.google.co.uk/books?id=C-OTQgAACAAJ</a>
 </div>
 </div>
 </div>
@@ -1150,7 +915,7 @@ one wants to compare the results from them, the same prior should be used.</p>
 <hr />
 <ol>
 <li id="fn1"><p>In
-<span class="citation">Crawford et al. (<a href="#ref-crawford_payne_1998" role="doc-biblioref">1998</a>)</span> they use the term ‘difference’ instead of discrepancy.
+<span class="citation"><a href="#ref-crawford_payne_1998" role="doc-biblioref">Crawford et al.</a> (<a href="#ref-crawford_payne_1998" role="doc-biblioref">1998</a>)</span> they use the term ‘difference’ instead of discrepancy.
 This is a somewhat unfortunate usage since a difference can pretty much refer to
 anything. Hence, ‘discrepancy’ will be used for the most part when referring to
 the difference between scores from two tasks<a href="#fnref1" class="footnote-back">↩︎</a></p></li>

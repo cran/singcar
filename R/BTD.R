@@ -58,10 +58,11 @@
 #'     controls = size_weight_illusion[-1, "V_SWI"], alternative = "l", iter = 1000)
 #'
 #' @references
+#'
 #' Crawford, J. R., & Garthwaite, P. H. (2007). Comparison of a single case to a
 #' control or normative sample in neuropsychology: Development of a Bayesian
-#' approach. \emph{Cognitive Neuropsychology, 24}(4), 343–372.
-#' https://doi.org/10.1080/02643290701290146
+#' approach. \emph{Cognitive Neuropsychology, 24}(4), 343-372.
+#' \doi{10.1080/02643290701290146}
 
 
 
@@ -125,7 +126,7 @@ BTD <- function (case, controls, sd = NULL, sample_size = NULL,
   }
 
   zcc <- (case - con_m)/con_sd
-  z_ast_est <- mean(z_ast)
+
 
   zcc_int <- stats::quantile(z_ast, c(alpha/2, (1 - alpha/2)))
   names(zcc_int) <- c("Lower Z-CC CI", "Upper Z-CC CI")
@@ -140,7 +141,7 @@ BTD <- function (case, controls, sd = NULL, sample_size = NULL,
   if (alternative == "two.sided") estimate <- c(zcc, (p_est/2)*100)
 
   zcc.name <- paste0("Std. case score (Z-CC), ",
-                     100*int_level, "% credible interval [",
+                     100*int_level, "% CI [",
                      format(round(zcc_int[1], 2), nsmall = 2),", ",
                      format(round(zcc_int[2], 2), nsmall = 2),"]")
 
@@ -157,7 +158,7 @@ BTD <- function (case, controls, sd = NULL, sample_size = NULL,
   }
 
   p.name <- paste0(alt.p.name,
-                   100*int_level, "% credible interval [",
+                   100*int_level, "% CI [",
                    format(round(p_int[1], 2), nsmall = 2),", ",
                    format(round(p_int[2], 2), nsmall = 2),"]")
 
@@ -168,7 +169,6 @@ BTD <- function (case, controls, sd = NULL, sample_size = NULL,
   names(typ.int) <- "Interval level (%)"
   interval <- c(typ.int, zcc_int, p_int)
 
-  names(z_ast_est) <- "est. z"
   names(df) <- "df"
   null.value <- 0 # Null hypothesis: difference = 0
   names(null.value) <- "difference between case and controls"
@@ -178,19 +178,18 @@ BTD <- function (case, controls, sd = NULL, sample_size = NULL,
 
 
   # Build output to be able to set class as "htest" object. See documentation for "htest" class for more info
-  output <- list(statistic = z_ast_est,
-                 parameter = df,
+  output <- list(parameter = df,
                  p.value = p_est,
                  estimate = estimate,
                  null.value = null.value,
                  interval = interval,
                  desc = c(con_m, con_sd, n),
                  alternative = alternative,
-                 method = paste("Bayesian Test of deficit by Crawford and Garthwaite (2007)"),
-                 data.name = paste0("case = ", format(round(case, 2), nsmall = 2),
-                                    " and controls (M = ", format(round(con_m, 2), nsmall = 2),
-                                    ", SD = ", format(round(con_sd, 2), nsmall = 2),
-                                    ", N = ", n, ")"))
+                 method = paste("Bayesian Test of Deficit"),
+                 data.name = paste0("Case = ", format(round(case, 2), nsmall = 2),
+                                    ", Controls (m = ", format(round(con_m, 2), nsmall = 2),
+                                    ", sd = ", format(round(con_sd, 2), nsmall = 2),
+                                    ", n = ", n, ")"))
 
   class(output) <- "htest"
   output

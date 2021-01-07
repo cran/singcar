@@ -71,11 +71,13 @@
 #' UDT(case_a = size_weight_illusion[1, "V_SWI"], case_b = size_weight_illusion[1, "K_SWI"],
 #'  controls_a = size_weight_illusion[-1, "V_SWI"], controls_b = size_weight_illusion[-1, "K_SWI"])
 #'
-#' @references {Crawford, J. R., & Garthwaite, P. H. (2005). Testing for
+#' @references
+#'
+#' Crawford, J. R., & Garthwaite, P. H. (2005). Testing for
 #' Suspected Impairments and Dissociations in Single-Case Studies in
 #' Neuropsychology: Evaluation of Alternatives Using Monte Carlo Simulations and
 #' Revised Tests for Dissociations. \emph{Neuropsychology, 19}(3), 318 - 331.
-#' \url{https://doi.org/10.1037/0894-4105.19.3.318}}
+#' \doi{10.1037/0894-4105.19.3.318}
 
 
 
@@ -249,7 +251,7 @@ UDT <- function (case_a, case_b, controls_a, controls_b,
     ci_up_zdcc <- ncp_up/sqrt(n)
     cint_zdcc <- c(ci_lo_zdcc, ci_up_zdcc)
 
-    zdcc.name <- paste0("Standardised task discrepancy (Z-DCC), ",
+    zdcc.name <- paste0("Std. task discrepancy (Z-DCC), ",
                        100*conf_level, "% CI [",
                        format(round(cint_zdcc[1], 2), nsmall = 2),", ",
                        format(round(cint_zdcc[2], 2), nsmall = 2),"]")
@@ -316,8 +318,8 @@ UDT <- function (case_a, case_b, controls_a, controls_b,
 
     interval <- c(typ.int, cint_zdcc, cint_p)
 
-    names(estimate) <- c("Standardised case score, task A (Z-CC)",
-                         "Standardised case score, task B (Z-CC)",
+    names(estimate) <- c("Std. case score, task A (Z-CC)",
+                         "Std. case score, task B (Z-CC)",
                          zdcc.name,
                          p.name)
 
@@ -327,17 +329,17 @@ UDT <- function (case_a, case_b, controls_a, controls_b,
     interval <- NULL
 
     if (alternative == "two.sided") {
-      p.name <- paste("Proportion of controls", ifelse(tstat < 0, "below", "above"), "case (%)")
+      p.name <- paste("Proportion", ifelse(tstat < 0, "below", "above"), "case (%)")
     } else if (alternative == "greater") {
-      p.name <- "Proportion of controls above case (%)"
+      p.name <- "Proportion above case (%)"
     } else {
-      p.name <- "Proportion of controls below case (%)"
+      p.name <- "Proportion below case (%)"
     }
 
 
-    names(estimate) <- c("Standardised case score, task A (Z-CC)",
-                         "Standardised case score, task B (Z-CC)",
-                         "Standardised task discrepancy (Z-DCC)",
+    names(estimate) <- c("Std. case score, task A (Z-CC)",
+                         "Std. case score, task B (Z-CC)",
+                         "Std. discrepancy (Z-DCC)",
                          p.name)
 
   }
@@ -349,10 +351,10 @@ UDT <- function (case_a, case_b, controls_a, controls_b,
   names(df) <- "df"
   null.value <- 0 # Null hypothesis: difference = 0
   names(null.value) <- "difference between tasks"
-  dname <- paste0("Case score A: ", format(round(case_a, 2), nsmall = 2), ", ",
-                  "Case score B: ", format(round(case_b, 2), nsmall = 2), ", ",
-                  "Controls A (mean, sd): (", format(round(con_m_a, 2), nsmall = 2), ", ",format(round(con_sd_a, 2), nsmall = 2), "), ",
-                  "Controls B (mean, sd): (", format(round(con_m_b, 2), nsmall = 2), ", ",format(round(con_sd_b, 2), nsmall = 2), ")")
+  dname <- paste0("Case A: ", format(round(case_a, 2), nsmall = 2), ", ",
+                  "B: ", format(round(case_b, 2), nsmall = 2), ", ",
+                  "Ctrl. A (m, sd): (", format(round(con_m_a, 2), nsmall = 2), ", ",format(round(con_sd_a, 2), nsmall = 2), "), ",
+                  "B: (", format(round(con_m_b, 2), nsmall = 2), ", ",format(round(con_sd_b, 2), nsmall = 2), ")")
 
 
   names(con_m_a) <- "Mean A"
@@ -362,18 +364,6 @@ UDT <- function (case_a, case_b, controls_a, controls_b,
   names(n) <- "Sample size"
   control.desc <- c(con_m_a, con_m_b, con_sd_a, con_sd_b, n)
 
-
-
-  # output <- list(statistic = tstat, parameter = df, p.value = pval,
-  #                estimate = estimate, null.value = null.value,
-  #                interval = interval,
-  #                desc = c(con_m, con_sd, n, stderr),
-  #                alternative = alternative,
-  #                method = paste("Crawford-Howell (1998) t-test"),
-  #                data.name = paste0("case = ", format(round(case, 2), nsmall = 2),
-  #                                   " and controls (M = ", format(round(con_m, 2), nsmall = 2),
-  #                                   ", SD = ", format(round(con_sd, 2), nsmall = 2),
-  #                                   ", N = ", n, ")"))
 
   # Build output to be able to set class as "htest" object. See documentation for "htest" class for more info
   output <- list(statistic = tstat,
