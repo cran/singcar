@@ -44,6 +44,10 @@ TD_power <- function(case, mean = 0, sd = 1,
                      alternative = c("less", "greater", "two.sided"),
                      alpha = 0.05, spec = 0.005) {
 
+  ###
+  # Set up error messages
+  ###
+
   if (!is.null(sample_size) & !is.null(power)) stop("Must supply only one of sample size or desired power")
   if (is.null(sample_size) & is.null(power)) stop("Must supply either sample size or desired power")
   if (!is.null(power)) if (power > 1 | power < 0) stop("Desired power must be between 0 and 1")
@@ -53,6 +57,10 @@ TD_power <- function(case, mean = 0, sd = 1,
 
   alternative <- match.arg(alternative)
   n = sample_size
+
+  ###
+  # Calculate power depending on alternative hypothesis
+  ###
 
   if (is.null(power)) {
 
@@ -106,6 +114,11 @@ TD_power <- function(case, mean = 0, sd = 1,
   }
 
   if (is.null(sample_size)) {
+
+    ###
+    # Deploy search algorithm to find sample
+    # size given power
+    ###
 
     n = 2
 
@@ -210,6 +223,10 @@ BTD_power <- function(case, mean = 0, sd = 1,
                       alpha = 0.05,
                       nsim = 1000, iter = 1000) {
 
+  ###
+  # Set up error messages
+  ###
+
   if (sample_size < 2) stop("Sample size must be greater than 1")
   if (alpha < 0 | alpha > 1) stop("Type I error rate must be between 0 and 1")
 
@@ -218,6 +235,11 @@ BTD_power <- function(case, mean = 0, sd = 1,
   alternative <- match.arg(alternative)
   n = sample_size
 
+
+  ###
+  # Create function that calculates p-value from
+  # simulated cases and samples
+  ###
 
   BTD_p_sim <- function() {
 
@@ -231,6 +253,9 @@ BTD_power <- function(case, mean = 0, sd = 1,
     pval
   }
 
+  ###
+  # Simulate p-values nsim number of times
+  ###
 
   pval <- vector(length = nsim)
 
@@ -239,6 +264,10 @@ BTD_power <- function(case, mean = 0, sd = 1,
     pval[i] <- BTD_p_sim()
 
   }
+
+  ###
+  # Calculate the percentage these pvalues are less than alpha
+  ###
 
   power = sum(pval < alpha)/length(pval)
 
@@ -271,7 +300,8 @@ BTD_power <- function(case, mean = 0, sd = 1,
 #'   covariates.
 #' @param cor_mat A correlation matrix containing the correlations of the
 #'   task of interest and the coviariate(s). The first variable is treated as
-#'   the task of interest. Defaults to no correlation between any.
+#'   the task of interest. Defaults to a correlation of 0.3 between the covariate
+#'   and the variate of interest.
 #' @param sample_size Single value of the size of the sample for which you wish
 #'   to calculate power.
 #' @param alternative The alternative hypothesis. A string of either "less" (default),
@@ -294,17 +324,25 @@ BTD_power <- function(case, mean = 0, sd = 1,
 #' cor_mat = cor_mat, iter = 20, nsim = 20)
 
 BTD_cov_power <- function(case, case_cov, control_task = c(0, 1), control_covar = c(0, 1),
-                          cor_mat = diag(2),
+                          cor_mat = diag(2) + 0.3 - diag(c(0.3, 0.3)),
                           sample_size,
                           alternative = c("less", "greater", "two.sided"),
                           alpha = 0.05,
                           nsim = 1000, iter = 1000) {
+
+  ###
+  # Set up error messages
+  ###
 
   if (alpha < 0 | alpha > 1) stop("Type I error rate must be between 0 and 1")
 
   if (sum(eigen(cor_mat)$values > 0) < length(diag(cor_mat))) stop("cor_mat is not positive definite")
 
   if (sample_size < 2) stop("Sample size must be greater than 1")
+
+  ###
+  # Extract needed statistics
+  ###
 
   alternative <- match.arg(alternative)
   n = sample_size
@@ -315,6 +353,10 @@ BTD_cov_power <- function(case, case_cov, control_task = c(0, 1), control_covar 
 
   Sigma <- diag(sum_stats[ , 2]) %*% cor_mat %*% diag(sum_stats[ , 2])
   mu <- sum_stats[ , 1]
+
+  ###
+  # Define function for simulating case and controls based on the values given
+  ###
 
   BTD_cov_p_sim <- function() {
 
@@ -339,6 +381,10 @@ BTD_cov_power <- function(case, case_cov, control_task = c(0, 1), control_covar 
   }
 
 
+  ###
+  # Simulate p-values nsim number of times
+  ###
+
   pval <- vector(length = nsim)
 
   for(i in 1:nsim) {
@@ -346,6 +392,10 @@ BTD_cov_power <- function(case, case_cov, control_task = c(0, 1), control_covar 
     pval[i] <- BTD_cov_p_sim()
 
   }
+
+  ###
+  # Calculate the percentage of which these p-values are below alpha
+  ###
 
   power = sum(pval < alpha)/length(pval)
 
