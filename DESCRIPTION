@@ -1,6 +1,6 @@
 Package: singcar
 Title: Comparing Single Cases to Small Samples
-Version: 0.1.3
+Version: 0.1.5
 Authors@R: 
     c(person(given = "Jonathan",
              family = "Rittmo",
@@ -16,17 +16,18 @@ Description: When comparing single cases to control populations and no parameter
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Depends: R (>= 2.10)
 Imports: stats, CholWishart, MASS, withr
-Suggests: knitr, rmarkdown, bookdown, testthat (>= 2.1.0)
+Suggests: knitr, rmarkdown, bookdown, lme4, lmerTest, testthat (>=
+        2.1.0)
 VignetteBuilder: knitr
 URL: https://github.com/jorittmo/singcar
 BugReports: https://github.com/jorittmo/singcar/issues
 NeedsCompilation: no
-Packaged: 2021-03-01 12:41:29 UTC; jritt
+Packaged: 2023-03-16 07:32:13 UTC; jritt
 Author: Jonathan Rittmo [aut, cre] (<https://orcid.org/0000-0001-5075-0166>),
   Robert McIntosh [aut] (<https://orcid.org/0000-0002-7615-6699>)
 Maintainer: Jonathan Rittmo <j.rittmo@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-03-01 13:50:02 UTC
+Date/Publication: 2023-03-16 09:10:02 UTC
